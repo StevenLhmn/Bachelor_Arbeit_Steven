@@ -1,12 +1,12 @@
-# Setup:
+### Setup
 Install TeX Live full scheme
 
-### Install in VSC:
+#### Install in VSC:
 install LaTeX Extension
 install LaTeX Workshop Extension
 install LTeX+ Extension
 
-Set settings: 
+#### Set settings: 
   "latex-workshop.latex.autoBuild.run": "onFileChange",
   "latex-workshop.latex.outDir": "%DIR%",
   "latex-workshop.view.pdf.viewer": "tab",
