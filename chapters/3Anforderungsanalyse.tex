@@ -1,1 +1,26 @@
 \chapter{Anforderungsanalyse}
+Im Folgenden werden die Anforderungen an den Gruppierungsalgorithmus beschrieben. Sie basieren auf den Absprache mit Petrit Vuthi vom CC4E, der den Algorithmus im Rahmen seiner Doktorarbeit einsetzen wird. Es wird das Format der Eingangs- und Ausgangsdaten, die Funktionalität des Algorithmus, sowie die maximalen Eingangsgrößen und Laufzeiten festgelegt.
+
+\begin{enumerate}[label=Req-\arabic*:]
+    \item Der zu betrachtende Kartenausschnitt (Region) muss im GeoJSON Format eingelesen werden können.
+    \item Das Koordinatenreferenzsystem muss EPSG:3857 sein.
+    \item Die Gebäude müssen dabei als zweidimensionaler Gebäudegrundrisse (LoD0) dargestellt werden und physische Gebäude darstellen (keine Haushalte).
+    \item Es müssen nur Regionen mit einer maximalen Anzahl von 100000 Häusern betrachtet werden können.
+    \item Die maximale räumliche Ausdehnung der Region darf 10 km in Ost-West-Richtung und 10 km in Nord-Süd-Richtung nicht überschreiten.
+    \item Es müssen Last- und Erzeugungsprofile eingelesen werden können. Diese repräsentieren den generierten und verbrauchten Strom pro abstrakter Zeiteinheit des Hauses. In dem GeoJSON sollen diese unter den Properties Objekt der Häuser in „Generation“ und „Last“ Objekte geschrieben sein.
+    \item Die Last- und Erzeugungsprofile sollen aus einer Liste von kWh Werten bestehen, die als Gleitkommazahl kodiert sind. Jedes Haus soll beide Objekte beinhalten und die Listen müssen bei jedem Haus gleich viele Elemente beinhalten.
+    \item Diese Werte müssen positiv und vollständig sein.
+    \item Die Last- und Erzeugungsprofile können maximal 8784 (Stunden in einem Schaltjahr) Zeitschritte pro Haus lang sein. 
+    \item Die Last- und Erzeugungsprofile können maximal Werte von 1000 kWh pro Zeitschritt pro Haus haben. 
+    \item Die Ausgabe des Algorithmus soll eine Liste von Label werten sein. Diese sind in derselben Reihenfolge anzuordnen wie die Häuser in dem Eingangs-GeoJSON. 
+    \item Der Algorithmus soll die Häuser aus dem GeoJSON zu Gruppen zusammenführen.
+    \item Diese Gruppen sollen möglichst gut aufgeteilt werden.
+    \item Wie gut eine Gruppe aufgeteilt wurde bestimmt eine Gütefunktion (Region Score). Diese wird durch Formel xy bestimmt.
+    \item Die Anzahl der Gruppen soll im Vorhinein nicht festgelegt werden.
+    \item Die maximale Gruppengröße soll festgelegt werden können.
+    \item Ein Haus kann nur einer Gruppe zugeordnet werden.
+    \item Die Laufzeit soll maximal linear mit den betrachteten Häusern wachsen. 
+    \item Die Laufzeit soll auf einem System mit Intel Core i7-XXXX, XX GB RAM, Windows/Linux Ausrüstung maximal eine Minute für 1000 Häuser dauern.
+    
+\end{enumerate}
+
