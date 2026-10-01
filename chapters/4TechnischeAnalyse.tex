@@ -1,22 +1,132 @@
 \chapter{Technische Analyse}
 
-Im Mittelpunkt der Anforderungen steht, dass die Häuser entsprechend des Region Scores optimal gruppiert werden sollen(REQ-xx). Dabei stehen zwei Themenbereiche hervor. DIe MAthemathische Berechnungsgrundlage des Region Scors und die Gruppierungsalgorithmen selbst.
+Im Mittelpunkt der Anforderungen steht, dass die Häuser entsprechend des Region Scores optimal gruppiert werden sollen(REQ-xx). Dabei stechen zwei Themenbereiche hervor. Die mathematische Berechnungsgrundlage des Region Scors und die Gruppierungsalgorithmen selbst.
 
-\subsection{Region Score}
-\subsubsection{Autarky}
-\subsubsection{}
+\section{Region Score}
+Die Funktion zur Bewertung, wie gut eine Region gruppiert wurde, ist eine gewichtete Summe aus der Autarkie der Region und einer Distanzkomponente.
 
-\subsection{Gruppierungsalgorithmen}
-ES sollen verschiedene herangehensweisen zum Gruppieren der Häuser zu Energiecommunities verglichen werden. Es gibt mehrere Ansätze in der Informatik Datenpunkte zu gruppieren. In dieser Arbeit werden folgende Algorithmen miteinander verglichen:
+\begin{equation}
+    Score_{R} = \omega DistanceScore_{R} + (1-\omega)Autarky_{R}
+\end{equation}
+
+\subsection{Distanz Score}
+
+Zur Berechnung des Distance Scores wird ein relatives Distanzverhältnis genutzt. Es wird zunächst die Gesamtdistanz aller Häuser zu einem gemeinsamen Centroid als Referenzwert bestimmt. Anschließend wird die Gesamtdistanz der gruppierten Häuser zu ihrem jeweiligen Centroid berechnet und ins Verhältnis zur Gesamtdistanz der ungruppierten Region gesetzt. Damit soll der Score immer relativ zum Worst Case der Region bleiben. Damit ist der Score höher, je stärker die Gruppierung die räumliche Distanz der Häuser zu ihrem jeweiligen Centroid gegenüber der ungegliederten Gesamtverteilung reduziert.
+
+Der Centroid (räumliche Mittelpunkt) einer Gruppe ($C_G$) wird durch den arithmetischen Mittelwert der Koordinaten ihrer Mitglieder bestimmt:
+
+\begin{equation}
+C_G
+=
+\left(
+\frac{1}{|G|}\sum_{h\in G}x_h,
+\frac{1}{|G|}\sum_{h\in G}y_h
+\right).
+\end{equation}
+
+Die gruppenspezifische Distanz ($D_G$) ergibt sich aus der Summe der euklidischen Distanzen aller Häuser zum jeweiligen Gruppen-Centroid:
+
+\begin{equation}
+D_G
+=
+\sum_{h\in G}
+\sqrt{
+(x_h-x_{C_G})^2
++
+(y_h-y_{C_G})^2
+}.
+\end{equation}
+
+Da eine Region aus mehreren Gruppen besteht, werden die Distanzwerte aller Gruppen summiert. Anschließend wird dieser durch den Distanzwert der ungruppierten Region geteilt.
+
+\begin{equation}
+\boxed{
+\operatorname{DistanceScore}_R
+=
+1-
+\frac{\sum_{G\in\mathcal{G}_R}D_G}{D_R}
+}
+\end{equation}
+
+Der Distance Score liegt damit im Intervall $[0,1]$.
+
+Ein hoher Distance Score entspricht somit einer vergleichsweise geringen räumlichen Distanz innerhalb der Gruppen.
+
+Dabei gilt:
+
+\begin{tabular}{ll}
+\textbf{Symbol} & \textbf{Bedeutung} \\ \hline
+$C_G$ & Centroid einer Gruppe $G$ \\ 
+$D_G$ & Summierte Distanz der Häuser einer Gruppe zu ihrem gemeinsamen Centroid \\ 
+$D_R$ & Summierte Distanz aller Häuser der Region zu ihrem gemeinsamen Centroid \\
+$R$ & Menge aller Häuser einer Region \\
+$\mathcal{G}_R$ & Menge aller Gruppen innerhalb der Region $R$ \\
+$G$ & Menge aller Häuser einer Gruppe \\
+$h$ & Ein Haus \\
+$x_h$ & x-Koordinate des Hauses $h$ \\ 
+$y_h$ & y-Koordinate des Hauses $h$\\
+\end{tabular}
+
+\subsection{Autarky}
+
+Der Autarkiegrad einer betrachteten Region ($A_R$) ist definiert als das Verhältnis der über alle Gruppen summierten Eigenverbrauchsmengen zur summierten Last aller Haushalte der Region. \\
+Die Berechnung des Autarkiegrades als arithmetischer Mittelwert der Autarkiegrade aller Gruppen kann nicht genutzt werden, weil die Gruppengrößen das Ergebnis verzerren würden. Die Bestimmung des Eigenverbrauchs erfolgt auf Ebene der Gruppe, weil angenommen wird, dass ein Energieaustausch bidirektional innerhalb einer Gruppe möglich ist.
+
+Der Eigenverbrauch der Gruppe ($SC_G$) bezeichnet die Menge an Energie, die innerhalb der Gruppe erzeugt und von den zur Gruppe gehörenden Haushalten verbraucht wird.
+
+\begin{align}
+    SC_{G} &= \sum_{t=1}^{T} \min\Bigg( \sum_{h \in G} Gen_h(t), \sum_{h \in G} Load_h(t) \Bigg)
+\end{align}
+
+Die gesamte Last der Haushalte in einer Gruppe ($Load_G$) kann wie folgt berechnet werden.
+
+\begin{align}
+    Load_{R} &= \sum_{t=1}^{T} \sum_{h \in R} Load_h(t)
+\end{align}
+
+Der finale Autarkiegrad wird berechnet durch das Verhältnis der summierten Eigenverbräuche der Gruppen und der gesamten Lasten der Region.
+
+\begin{align}
+\boxed{
+    A_R = \frac{\sum{G \in \mathcal{G}_R} SC_G}{Load_R}
+}
+\end{align}
+
+Dabei gilt:
+
+\vspace{5mm}
+
+\begin{tabular}{ll}
+\textbf{Symbol} & \textbf{Bedeutung} \\ \hline
+$Load(t)$ & Load (Energieverbrauch) zur Zeit $t$ \\ 
+$Gen(t)$ & Generation (Erzeugung) zur Zeit $t$ \\ 
+$T$ & Anzahl der Zeitschritte \\ 
+$R$ & Menge aller Häuser einer Region \\ 
+$\mathcal{G}_R$ & Menge aller Gruppen innerhalb der Region $R$ \\
+$G$ & Menge aller Häuser in einer Gruppe \\ 
+\end{tabular}
+
+\subsection{Diskussion Alternativen}
+
+Für die Bewertung der Gruppierung sind drei zentrale Fragestellungen zu betrachten:
+\begin{itemize}
+    \item wie die räumliche Qualität einer Gruppierung bewertet werden kann. \newline Im aktuellen Ansatz wird hierfür die euklidische Distanz innerhalb der Gruppen (Intra-Cluster-Distanz, Kompaktheit) betrachtet. Eine alternative Möglichkeit besteht darin, zusätzlich oder stattdessen die Distanz zwischen verschiedenen Gruppen (Inter-Cluster-Distanz, räumliche Trennung) zu berücksichtigen.
+    \item Darüber hinaus stellt sich die Frage, wie die energetische Qualität einer Gruppierung bewertet werden kann. Im aktuellen Ansatz wird hierfür der Autarkiegrad der einzelnen Gruppen betrachtet. 
+    \item Schließlich ist zu bestimmen, wie die beiden Metriken zu einer gemeinsamen Bewertungsgröße kombiniert werden können. Im aktuellen Ansatz werden beide Metriken über eine gewichtete Summe zu einem Gesamtscore zusammengeführt.
+\end{itemize} 
+
+
+\section{Gruppierungsalgorithmen}
+ES sollen verschiedene Herangehensweisen zum Gruppieren der Häuser zu Energiecommunities verglichen werden. Es gibt mehrere Ansätze in der Informatik Datenpunkte zu gruppieren. In dieser Arbeit werden folgende Algorithmen miteinander verglichen:
 
 Eine Brute Force Methode, bei der alle möglichen Gruppen evaluiert werden.
-2.K-Means als Vertreter einers klassischen Clusterverfahren.
+2.K-Means als Vertreter eines klassischen Clusterverfahren.
 Hierarchisch Bottom up und Top down
 Genetisches verfahren als vertreter von Zufallsmethoden
 
-\subsubsection{Brute Force}
-\subsubsection{K-Means}
-\subsubsection{Hierarchisch}
-\subsubsection{Genetisch}
+\subsection{Brute Force}
+\subsection{K-Means}
+\subsection{Hierarchisch}
+\subsection{Genetisch}
 
 

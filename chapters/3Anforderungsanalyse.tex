@@ -1,17 +1,14 @@
 \chapter{Anforderungsanalyse}
-"Eine Anforderungsspezifikation bzw. ein Anforderungsdokument ist eine systematisch dargestellte Sammlung von Anforderungen (typischer-
-weise für ein System oder eine Komponente), die vorgegebenen Kriterien genügt."
+\textit{„Eine Anforderungsspezifikation bzw. ein Anforderungsdokument ist eine systematisch dargestellte Sammlung von Anforderungen (typischerweise für ein System oder eine Komponente), die vorgegebenen Kriterien genügt.“} [PoRu15, S. 35, Definition 4-1] %% ToDo bib.tex
 
-Die Anforderungen können in laut xx in verschiedene Perspektiven. Für den Algorithmus eignen sich die Strukturperspektive und die Funktionsperspektive. In der Betrachtung der Funktionsperspektive kann zwischen den funktionalen Anforderungen, Qualitätsanforderungen und Randbedingung unterschieden werden.
+% TODO: bib.tex
+Die Anforderungen können nach [PoRu15] von verschiedene Perspektiven betrachtet werden. Zur Beschreibung der Anforderungen des zu entwickelnden Algorithmus eignen sich die Strukturperspektive und die Funktionsperspektive. In der Betrachtung der Funktionsperspektive kann zwischen den funktionalen Anforderungen, Qualitätsanforderungen und Randbedingung unterschieden werden.
 
 Die Anforderungen basieren auf der Absprache mit Petrit Vuthi vom CC4E, der den Algorithmus im Rahmen seiner Doktorarbeit einsetzen wird.
 
-Strukturperspektive (Ein- und Ausgabedaten):
-Funktionale Anforderungen:
-Qualitätsanforderungen:
-Randbedingungen:
-
-\begin{enumerate}[label=Req-\arabic*:]
+\section{Strukturperspektive}
+(Ein- und Ausgabedaten)
+\begin{enumerate}[label=Req-S-\arabic*:]
     \item Der zu betrachtende Kartenausschnitt (Region) muss im GeoJSON Format eingelesen werden können.
     \item Das Koordinatenreferenzsystem muss EPSG:3857 sein.
     \item Die Gebäude müssen dabei als zweidimensionaler Gebäudegrundrisse (LoD0) dargestellt werden und physische Gebäude darstellen (keine Haushalte).
@@ -23,16 +20,26 @@ Randbedingungen:
     \item Die Last- und Erzeugungsprofile können maximal 8784 (Stunden in einem Schaltjahr) Zeitschritte pro Haus lang sein. 
     \item Die Last- und Erzeugungsprofile können maximal Werte von 1000 kWh pro Zeitschritt pro Haus haben. 
     \item Die Ausgabe des Algorithmus soll eine Liste von Label werten sein. Diese sind in derselben Reihenfolge anzuordnen wie die Häuser in dem Eingangs-GeoJSON. 
-    \item Der Algorithmus soll die Häuser aus dem GeoJSON zu Gruppen zusammenführen.
-    \item Diese Gruppen sollen möglichst gut aufgeteilt werden.
-    \item Wie gut eine Gruppe aufgeteilt wurde bestimmt eine Bewertungsfunktion (Region Score). Diese wird durch Formel xy bestimmt.
-    \item Die Anzahl der Gruppen soll im Vorhinein nicht festgelegt werden.
-    \item Die maximale Gruppengröße soll festgelegt werden können.
-    \item Ein Haus kann nur einer Gruppe zugeordnet werden.
-    \item Der Algorithmus soll unter Eingabe des gleichen Seeds deterministisch sein.
-    \item Die Laufzeit soll maximal linear mit den betrachteten Häusern wachsen. 
-    \item Die Laufzeit soll auf einem System mit Intel Core i7-XXXX, XX GB RAM, Windows/Linux Ausrüstung maximal eine Minute für 1000 Häuser dauern.
-    \item Wenn die Bedingungen der Eingabe nicht eingehalten werden können, bricht der Algorithmus mit einem Fehler die Ausführung ab.
-    
 \end{enumerate}
 
+\section{Funktionale Anforderungen}
+\begin{enumerate}[label=Req-F-\arabic*:]
+    \item Der Algorithmus soll die Häuser aus dem GeoJSON zu Gruppen zusammenführen.
+    \item Diese Gruppen sollen möglichst gut aufgeteilt werden.
+    \item Wie gut eine Gruppe aufgeteilt wurde bestimmt eine Bewertungsfunktion (Region Score). Diese wird durch die Formel im Kapitel „Technische Analyse“ beschrieben.
+    \item Die Anzahl der Gruppen muss im Vorhinein nicht festgelegt sein.
+    \item Die maximale Gruppengröße muss festgelegt werden können.
+    \item Ein Haus kann nur einer Gruppe zugeordnet werden.
+    \item Der Algorithmus soll unter Eingabe des gleichen Seeds deterministisch sein.
+\end{enumerate}
+
+\section{Qualitätsanforderungen}
+\begin{enumerate}[label=Req-Q-\arabic*:]
+    \item Die Laufzeit soll in \(O(n)\) liegen, wobei \(n\) der Anzahl der betrachteten Häuser entspricht.
+    \item Die Laufzeit darf auf einem System mit einem Intel Core i7-XXXX, XX GB RAM und Windows/Linux bei der Verarbeitung von XX Häusern maximal XX Minuten betragen.
+\end{enumerate}
+
+\section{Randbedingungen}
+\begin{enumerate}[label=Req-R-\arabic*:]
+    \item Wenn die Strukturanforderungen der Eingabe nicht eingehalten werden können, bricht der Algorithmus mit einem Fehler die Ausführung ab.
+\end{enumerate}
