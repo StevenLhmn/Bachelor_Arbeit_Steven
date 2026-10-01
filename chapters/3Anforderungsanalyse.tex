@@ -1,5 +1,15 @@
 \chapter{Anforderungsanalyse}
-Im Folgenden werden die Anforderungen an den Gruppierungsalgorithmus beschrieben. Sie basieren auf den Absprache mit Petrit Vuthi vom CC4E, der den Algorithmus im Rahmen seiner Doktorarbeit einsetzen wird. Es wird das Format der Eingangs- und Ausgangsdaten, die Funktionalität des Algorithmus, sowie die maximalen Eingangsgrößen und Laufzeiten festgelegt.
+"Eine Anforderungsspezifikation bzw. ein Anforderungsdokument ist eine systematisch dargestellte Sammlung von Anforderungen (typischer-
+weise für ein System oder eine Komponente), die vorgegebenen Kriterien genügt."
+
+Die Anforderungen können in laut xx in verschiedene Perspektiven. Für den Algorithmus eignen sich die Strukturperspektive und die Funktionsperspektive. In der Betrachtung der Funktionsperspektive kann zwischen den funktionalen Anforderungen, Qualitätsanforderungen und Randbedingung unterschieden werden.
+
+Die Anforderungen basieren auf der Absprache mit Petrit Vuthi vom CC4E, der den Algorithmus im Rahmen seiner Doktorarbeit einsetzen wird.
+
+Strukturperspektive (Ein- und Ausgabedaten):
+Funktionale Anforderungen:
+Qualitätsanforderungen:
+Randbedingungen:
 
 \begin{enumerate}[label=Req-\arabic*:]
     \item Der zu betrachtende Kartenausschnitt (Region) muss im GeoJSON Format eingelesen werden können.
@@ -15,7 +25,7 @@ Im Folgenden werden die Anforderungen an den Gruppierungsalgorithmus beschrieben
     \item Die Ausgabe des Algorithmus soll eine Liste von Label werten sein. Diese sind in derselben Reihenfolge anzuordnen wie die Häuser in dem Eingangs-GeoJSON. 
     \item Der Algorithmus soll die Häuser aus dem GeoJSON zu Gruppen zusammenführen.
     \item Diese Gruppen sollen möglichst gut aufgeteilt werden.
-    \item Wie gut eine Gruppe aufgeteilt wurde bestimmt eine Gütefunktion (Region Score). Diese wird durch Formel xy bestimmt.
+    \item Wie gut eine Gruppe aufgeteilt wurde bestimmt eine Bewertungsfunktion (Region Score). Diese wird durch Formel xy bestimmt.
     \item Die Anzahl der Gruppen soll im Vorhinein nicht festgelegt werden.
     \item Die maximale Gruppengröße soll festgelegt werden können.
     \item Ein Haus kann nur einer Gruppe zugeordnet werden.
