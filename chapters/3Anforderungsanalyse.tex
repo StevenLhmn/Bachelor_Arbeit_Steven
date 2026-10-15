@@ -9,14 +9,11 @@ Die Anforderungen basieren auf der Absprache mit Petrit Vuthi vom CC4E, der den 
 \section{Strukturperspektive}
 (Ein- und Ausgabedaten)
 \begin{enumerate}[label=Req-S-\arabic*:]
-    \item Der zu betrachtende Kartenausschnitt (Region) muss im GeoJSON Format eingelesen werden können.
-    \item Das Koordinatenreferenzsystem muss EPSG:3857 sein.
-    \item Die Gebäude müssen dabei als zweidimensionaler Gebäudegrundrisse (LoD0) dargestellt werden und physische Gebäude darstellen (keine Haushalte).
+    \item Die zugrundeliegenden Kartendaten muss im XML Format LoD1 cityGML xxx_Ref_spec eingelesen werden können.
+    \item Es muss die Werte für eine "Boundingbox" mit der Nord-, Süd-, Ost- und Westgrenze eingegeben werden können um das zu betrachtende Gebiet (Region) zu definieren. Das Koordinatenreferenzsystem muss EPSG:3857 sein.
     \item Es müssen nur Regionen mit einer maximalen Anzahl von 100000 Häusern betrachtet werden können.
     \item Die maximale räumliche Ausdehnung der Region darf 10 km in Ost-West-Richtung und 10 km in Nord-Süd-Richtung nicht überschreiten.
-    \item Es müssen Last- und Erzeugungsprofile eingelesen werden können. Diese repräsentieren den generierten und verbrauchten Strom pro abstrakter Zeiteinheit des Hauses. In dem GeoJSON sollen diese unter den Properties Objekt der Häuser in „Generation“ und „Last“ Objekte geschrieben sein.
-    \item Die Last- und Erzeugungsprofile sollen aus einer Liste von kWh Werten bestehen, die als Gleitkommazahl kodiert sind. Jedes Haus soll beide Objekte beinhalten und die Listen müssen bei jedem Haus gleich viele Elemente beinhalten.
-    \item Diese Werte müssen positiv und vollständig sein.
+    \item Es müssen Last- und Erzeugungsprofile eingelesen werden können. Diese repräsentieren den generierten und verbrauchten Strom pro abstrakter Zeiteinheit des Hauses. In dem GeoJSON sollen diese unter den Properties Objekt der Häuser in „Generation“ und „Last“ Objekte geschrieben sein. Die Last- und Erzeugungsprofile sollen aus einer Liste von kWh Werten bestehen, die als Gleitkommazahl kodiert sind. Jedes Haus soll beide Objekte beinhalten und die Listen müssen bei jedem Haus gleich viele Elemente beinhalten. Diese Werte müssen positiv und vollständig sein. Diese sollen ein Kalenderjahr in Stundenauflösung darstellen.
     \item Die Last- und Erzeugungsprofile können maximal 8784 (Stunden in einem Schaltjahr) Zeitschritte pro Haus lang sein. 
     \item Die Last- und Erzeugungsprofile können maximal Werte von 1000 kWh pro Zeitschritt pro Haus haben. 
     \item Die Ausgabe des Algorithmus soll eine Liste von Label werten sein. Diese sind in derselben Reihenfolge anzuordnen wie die Häuser in dem Eingangs-GeoJSON. 
@@ -33,7 +30,7 @@ Die Anforderungen basieren auf der Absprache mit Petrit Vuthi vom CC4E, der den 
     \item Der Algorithmus soll unter Eingabe des gleichen Seeds deterministisch sein.
 \end{enumerate}
 
-\section{Qualitätsanforderungen}
+\section{Nichtfunktionale Anforderungen}
 \begin{enumerate}[label=Req-Q-\arabic*:]
     \item Die Laufzeit soll in \(O(n)\) liegen, wobei \(n\) der Anzahl der betrachteten Häuser entspricht.
     \item Die Laufzeit darf auf einem System mit einem Intel Core i7-XXXX, XX GB RAM und Windows/Linux bei der Verarbeitung von XX Häusern maximal XX Minuten betragen.
