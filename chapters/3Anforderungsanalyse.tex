@@ -10,20 +10,18 @@ Die Anforderungen basieren auf der Absprache mit Petrit Vuthi vom CC4E, der den 
 (Ein- und Ausgabedaten)
 \begin{enumerate}[label=Req-S-\arabic*:]
     \item Die zugrundeliegenden Kartendaten muss im XML Format LoD1 cityGML xxx_Ref_spec eingelesen werden können.
-    \item Es muss die Werte für eine "Boundingbox" mit der Nord-, Süd-, Ost- und Westgrenze eingegeben werden können um das zu betrachtende Gebiet (Region) zu definieren. Das Koordinatenreferenzsystem muss EPSG:3857 sein.
+    \item Es muss die Werte für eine "Boundingbox" mit der Nord-, Süd-, Ost- und Westgrenze eingegeben werden können, um das zu betrachtende Gebiet (Region) zu definieren. Das Koordinatenreferenzsystem muss EPSG:3857 sein.
     \item Es müssen nur Regionen mit einer maximalen Anzahl von 100000 Häusern betrachtet werden können.
     \item Die maximale räumliche Ausdehnung der Region darf 10 km in Ost-West-Richtung und 10 km in Nord-Süd-Richtung nicht überschreiten.
-    \item Es müssen Last- und Erzeugungsprofile eingelesen werden können. Diese repräsentieren den generierten und verbrauchten Strom pro abstrakter Zeiteinheit des Hauses. In dem GeoJSON sollen diese unter den Properties Objekt der Häuser in „Generation“ und „Last“ Objekte geschrieben sein. Die Last- und Erzeugungsprofile sollen aus einer Liste von kWh Werten bestehen, die als Gleitkommazahl kodiert sind. Jedes Haus soll beide Objekte beinhalten und die Listen müssen bei jedem Haus gleich viele Elemente beinhalten. Diese Werte müssen positiv und vollständig sein. Diese sollen ein Kalenderjahr in Stundenauflösung darstellen.
-    \item Die Last- und Erzeugungsprofile können maximal 8784 (Stunden in einem Schaltjahr) Zeitschritte pro Haus lang sein. 
+    \item Es müssen Last- und Erzeugungsprofile eingelesen werden können. Diese repräsentieren den generierten und verbrauchten Strom des Hauses pro Stunde in kWH in einem Kalenderjahr. Die Listen müssen bei jedem Haus 8784 Elemente beinhalten und die Werte müssen positiv und vollständig sein.
     \item Die Last- und Erzeugungsprofile können maximal Werte von 1000 kWh pro Zeitschritt pro Haus haben. 
-    \item Die Ausgabe des Algorithmus soll eine Liste von Label werten sein. Diese sind in derselben Reihenfolge anzuordnen wie die Häuser in dem Eingangs-GeoJSON. 
+    \item Die Ausgabe des Algorithmus soll eine Liste von Label werten sein, die angeben in welche Gruppe das Haus zugeordnet wurde. 
 \end{enumerate}
 
 \section{Funktionale Anforderungen}
 \begin{enumerate}[label=Req-F-\arabic*:]
-    \item Der Algorithmus soll die Häuser aus dem GeoJSON zu Gruppen zusammenführen.
-    \item Diese Gruppen sollen möglichst gut aufgeteilt werden.
-    \item Wie gut eine Gruppe aufgeteilt wurde bestimmt eine Bewertungsfunktion (Region Score). Diese wird durch die Formel im Kapitel „Technische Analyse“ beschrieben.
+    \item Der Algorithmus soll die eingelesenden Häuser zu Gruppen zusammenführen.
+    \item Diese Gruppen sollen möglichst gut aufgeteilt werden, dass die möglicht klar abgetrennte Gruppen bilden aber auch möglichst Autark sind. Wie gut eine Gruppe aufgeteilt wurde bestimmt eine Bewertungsfunktion (Region Score). Diese wird durch die Formel im Kapitel „Technische Analyse“ beschrieben.
     \item Die Anzahl der Gruppen muss im Vorhinein nicht festgelegt sein.
     \item Die maximale Gruppengröße muss festgelegt werden können.
     \item Ein Haus kann nur einer Gruppe zugeordnet werden.
