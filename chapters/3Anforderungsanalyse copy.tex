@@ -1,0 +1,45 @@
+\chapter{Anforderungsanalyse}
+\textit{„Eine Anforderungsspezifikation bzw. ein Anforderungsdokument ist eine systematisch dargestellte Sammlung von Anforderungen (typischerweise für ein System oder eine Komponente), die vorgegebenen Kriterien genügt.“} [PoRu15, S. 35, Definition 4-1] %% ToDo bib.tex
+
+% TODO: bib.tex
+Die Anforderungen können nach [PoRu15] von verschiedene Perspektiven betrachtet werden. Zur Beschreibung der Anforderungen des zu entwickelnden Algorithmus eignen sich die Strukturperspektive und die Funktionsperspektive. In der Betrachtung der Funktionsperspektive kann zwischen den funktionalen Anforderungen, Qualitätsanforderungen und Randbedingung unterschieden werden.
+
+Die Anforderungen basieren auf der Absprache mit Petrit Vuthi vom CC4E, der den Algorithmus im Rahmen seiner Doktorarbeit einsetzen wird.
+
+\section{Funktionelle Anforderungen}
+
+\subsection{Ein- und Ausgabedaten}
+\begin{enumerate}[label=Req-S-\arabic*:]
+    \item Die zugrunde liegenden Kartendaten müssen im XML-Format LoD1 CityGML xxx_Ref_spec eingelesen werden können.
+    \item Es müssen die Koordinaten der Bounding Box (Nord-, Süd-, Ost- und Westgrenze) eingegeben werden können, um das zu betrachtende Gebiet (Region) zu definieren. Als Koordinatenreferenzsystem muss EPSG:3857 verwendet werden.
+    \item Es müssen Regionen mit maximal 100.000 Häusern verarbeitet werden können.
+    \item Die räumliche Ausdehnung der Region darf maximal 10 km in Ost-West-Richtung und 10 km in Nord-Süd-Richtung betragen.
+    \item Es müssen Last- und Erzeugungsprofile eingelesen werden können. Diese repräsentieren den stündlichen Stromverbrauch und die stündliche Stromerzeugung eines Hauses über ein Kalenderjahr in kWh. Jedes Profil muss 8784 vollständig ausgefüllte, nicht negative Werte enthalten.
+    \item Die Last- und Erzeugungsprofile dürfen pro Haus und Zeitschritt einen maximalen Wert von 1000 kWh aufweisen.
+    \item Der Algorithmus muss als Ausgabe eine Liste von Label-Werten liefern, die angeben, welcher Gruppe jedes Haus zugeordnet wurde.
+\end{enumerate}
+
+\subsection{Gruppenbildung}
+\begin{enumerate}[label=Req-F-\arabic*:]
+    \item Der Algorithmus muss die eingelesenen Häuser zu Gruppen zusammenführen.
+    \item Der Algorithmus muss die Gruppenbildung anhand einer Bewertungsfunktion (Region Score) optimieren. Die Bewertungsfunktion bewertet, wie klar die Gruppen räumlich voneinander abgegrenzt sind und wie autark die einzelnen Gruppen sind. Die Berechnung des Region Scores ist im Kapitel „Technische Analyse“ beschrieben. Der Region Score muss maximiert werden.
+    \item Die Anzahl der zu bildenden Gruppen darf vor der Ausführung des Algorithmus nicht festgelegt werden müssen.
+    \item Die maximale Anzahl an Häusern pro Gruppe muss als Eingabeparameter festgelegt werden können.
+    \item Die maximale räumliche Ausdehnung einer Gruppe muss als Eingabeparameter festgelegt werden können. Sie wird anhand des Abstands zwischen dem Mittelpunkt der Gruppe und dem am weitesten entfernten Haus der Gruppe bestimmt.
+    \item Jedes Haus darf höchstens einer Gruppe zugeordnet werden.
+    \item Der Algorithmus muss bei identischer Eingabe und gleichem Seed deterministische Ergebnisse liefern.
+\end{enumerate}
+
+\subsection{Fehlerbehandlung}
+\begin{enumerate}[label=Req-R-\arabic*:]
+    \item Werden die strukturellen Anforderungen an die Eingabedaten nicht erfüllt, muss der Algorithmus die Ausführung mit einer Fehlermeldung abbrechen.
+\end{enumerate}
+
+
+\section{Nicht-funktionelle Anforderungen}
+
+\subsection{Laufzeit und Performance}
+\begin{enumerate}[label=Req-Q-\arabic*:]
+    \item Die asymptotische Laufzeit des Algorithmus muss in $O(n)$ liegen, wobei $n$ die Anzahl der betrachteten Häuser bezeichnet.
+    \item Bei der Verarbeitung von XX Häusern darf die Laufzeit auf einem System mit einem Intel Core i7-XXXX, XX GB RAM und Windows/Linux maximal XX Minuten betragen.
+\end{enumerate}
