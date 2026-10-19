@@ -21,9 +21,10 @@ Die Anforderungen basieren auf der Absprache mit Petrit Vuthi vom CC4E, der den 
 \section{Funktionale Anforderungen}
 \begin{enumerate}[label=Req-F-\arabic*:]
     \item Der Algorithmus soll die eingelesenden Häuser zu Gruppen zusammenführen.
-    \item Diese Gruppen sollen möglichst gut aufgeteilt werden, dass die möglicht klar abgetrennte Gruppen bilden aber auch möglichst Autark sind. Wie gut eine Gruppe aufgeteilt wurde bestimmt eine Bewertungsfunktion (Region Score). Diese wird durch die Formel im Kapitel „Technische Analyse“ beschrieben.
+    \item Diese Gruppen sollen möglichst gut aufgeteilt werden, sodass möglichst klar abgetrennte Gruppen gebildet werden, aber die Gruppen auch möglichst Autark sind. Wie gut eine Gruppe aufgeteilt wurde bestimmt eine Bewertungsfunktion (Region Score). Diese wird durch die Formel im Kapitel „Technische Analyse“ beschrieben. Diese Bewertungsfunktion soll maximiert werden.
     \item Die Anzahl der Gruppen muss im Vorhinein nicht festgelegt sein.
-    \item Die maximale Gruppengröße muss festgelegt werden können.
+    \item Die maximale Anzahl an Häusern in einer Gruppe muss festgelegt werden können.
+    \item Die maximale räumliche Ausdehnung einer Gruppe muss festgelegt werden können. Diese wird durch den Mittelpunkt der Gruppe zum am weitesten entferntesten Haus berechnet.
     \item Ein Haus kann nur einer Gruppe zugeordnet werden.
     \item Der Algorithmus soll unter Eingabe des gleichen Seeds deterministisch sein.
 \end{enumerate}
