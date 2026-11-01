@@ -1,15 +1,20 @@
 \chapter{Technische Analyse}
 
-Im Mittelpunkt der Anforderungen steht, dass die Häuser entsprechend des Region Scores optimal gruppiert werden sollen(REQ-xx). Dabei stechen zwei Themenbereiche hervor. Die mathematische Berechnungsgrundlage des Region Scors und die Gruppierungsalgorithmen selbst.
+Diese Arbeit soll betrachten, wie man möglichst gut Energycommunities gruppieren kann. Allerdings erfordert dies eine klare Definition, was als gut bewertet wird. Um das zu definieren und die Algorithmen zu bewerten und damit zu vergleichen, eignet sich die Definition einer Formel dessen Ergebnis eine Zahl zwischen 0 und 1 ist. Es ist quasi der Score der betrachteten Region.
 
 \section{Region Score}
-Die Funktion zur Bewertung, wie gut eine Region gruppiert wurde, ist eine gewichtete Summe aus der Autarkie der Region und einer Distanzkomponente.
+ Dieser Score muss die Anforderungen aus dem vorherigen Kapitel berücksichtigen und auch in einer Zahl darstellen wie gut die Auswahl an Gebäuden einer räumlichen Gruppe ähnelt. Diese Beiden Anforderungen sind teilweise gegensätzlich und können nur vom Nutzer des Algorithmus gewichtet werden. Deshalb wird die Bewertung der Gruppe als gewichtete Summe aus einer energetischen Komponente der Region und einer Distanzkomponente formuliert. Damit lässt sich anhand eines Gewichtes $\omega$ der mathematische Fokus verschieben.
 
 \begin{equation}
     Score_{R} = \omega DistanceScore_{R} + (1-\omega)Autarky_{R}
 \end{equation}
 
 \subsection{Distanz Score}
+
+Um zu bestimmen, wie gut räumlich gruppiert wurde, muss zuerst definiert werden, was eine gute Gruppe ausmacht. Dieses Problem wird in der Informatik im Themenfeld der Clusteralgorithmen beschrieben. Dort gibt es verschiedene Ansätze, die im Folgenden kurz erläutert werden. Dadurch kann für diese Arbeit und diesen Anwendungsfall eine geeignete Distanzfunktion ermittelt werden. 
+
+[Erleuterung]
+[Begründungwarum sich fpr diesen entschieen wurde]
 
 Zur Berechnung des Distance Scores wird ein relatives Distanzverhältnis genutzt. Es wird zunächst die Gesamtdistanz aller Häuser zu einem gemeinsamen Centroid als Referenzwert bestimmt. Anschließend wird die Gesamtdistanz der gruppierten Häuser zu ihrem jeweiligen Centroid berechnet und ins Verhältnis zur Gesamtdistanz der ungruppierten Region gesetzt. Damit soll der Score immer relativ zum Worst Case der Region bleiben. Damit ist der Score höher, je stärker die Gruppierung die räumliche Distanz der Häuser zu ihrem jeweiligen Centroid gegenüber der ungegliederten Gesamtverteilung reduziert.
 
@@ -69,6 +74,10 @@ $y_h$ & y-Koordinate des Hauses $h$\\
 
 \subsection{Autarky}
 
+Auch für die Berechnungsgrundlage wie gut eine Gruppe energetisch gruppiert wurde, gibt es verschiedene Herangehensweisen. Man kann die Autarkie, die Eigenverbrauchsquote und die Residuallast bestimmen. [def der einzelnen werte]
+Um zu entscheiden welcher Wert am besten geeignet ist, muss das Ziel von Energiecommununetys betrachtet werden. Dies ist es die energetische Effizienz zu erhöhen und möglichst selbstständig zu sein. Deshalb passt Autarkie als Maß besonders gut. Für den Fall, dass zu viel Strom produziert wird, spielt es nicht weiter ins Gewicht (bei solar wird die energie einfach nciht abgenoimmen dann). Bei der Residuallast und der Eigenverbrauchsquote hingegen spielt die zu viel erzeugte Energie eine zentrale Rolle und würde eine Region negativ beeinflussen. Wenn hingegen zu wenig Energie im Gebiet existiert würde die Eigenverbrauchsquote das nicht betrachten. Das ist aber für die Selbstständigkeit einer Energiecommunity besonders wichtig. Und bei der Residuallast wird es zwar negativ ins Gewicht fallen, allerdings nur zu einem Teil, weil der zweite Teil auch die zu viele Energie betrachtet.
+Außerdem muss unterschieden werden zwischen bilanziellem Berechnungen und stündlicher Berechnung. Nur weil ein Haus an einem Tag die gleiche Menge erzeugt und verbraucht hat, heißt es nicht, dass es ohne Energiespeicher keine Energie zukaufen musste. Deshalb muss man pro Zeitschritt, hier Stunde, die Werte ausrechnen und kann sie erst dann summieren. 
+[Bottom up erklären nicht top down] 
 Der Autarkiegrad einer betrachteten Region ($A_R$) ist definiert als das Verhältnis der über alle Gruppen summierten Eigenverbrauchsmengen zur summierten Last aller Haushalte der Region. \\
 Die Berechnung des Autarkiegrades als arithmetischer Mittelwert der Autarkiegrade aller Gruppen kann nicht genutzt werden, weil die Gruppengrößen das Ergebnis verzerren würden. Die Bestimmung des Eigenverbrauchs erfolgt auf Ebene der Gruppe, weil angenommen wird, dass ein Energieaustausch bidirektional innerhalb einer Gruppe möglich ist.
 
@@ -117,7 +126,9 @@ Für die Bewertung der Gruppierung sind drei zentrale Fragestellungen zu betrach
 
 
 \section{Gruppierungsalgorithmen}
-ES sollen verschiedene Herangehensweisen zum Gruppieren der Häuser zu Energiecommunities verglichen werden. Es gibt mehrere Ansätze in der Informatik Datenpunkte zu gruppieren. In dieser Arbeit werden folgende Algorithmen miteinander verglichen:
+Jetzt wo wir wissen was eine Gute gruppe ist müssen wir überlegen wie wir die Gruppen bestimmen. Zuerst ligt es nahe alle möglichen Gruppen zu bestimmen und dann einfach die Besten Werte auszuwählen. Das funktioniet auch gt wenn das Betrachtete Gebiet ca 8 Gebäude  [Zeit] hat, aber die diese zeit wird so schenll Größer dass dieser Brute force ansatz nicht für Wohngebiete gar Satdteile funktioieren wird. Und da laut der Anforderungen auch b´gebiete mit größe [] berechnet werden müssen würde man da xx lnage warten. Die [wie heit das nochmal] O() ist bei xx.
+
+Da es sehr viele Verschiedene Algorithmen gibt die Daten Gruppieren die den Rahmen der Abreit sprengen würden werden hier vor allem GRundsättlich andere Ansätze ausprobiert.
 
 Eine Brute Force Methode, bei der alle möglichen Gruppen evaluiert werden.
 2.K-Means als Vertreter eines klassischen Clusterverfahren.
