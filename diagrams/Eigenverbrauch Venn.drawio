@@ -1,0 +1,55 @@
+<mxfile host="Electron">
+  <diagram name="Seite-1" id="FZuF6UriUdWvb1FfVggq">
+    <mxGraphModel dx="902" dy="532" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="1" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DBQ6zwgsACEj0phD67vC-1" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=9;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;spacingTop=18;fillColor=#fff2cc;strokeColor=#d6b656;" value="Erzeugung" vertex="1">
+          <mxGeometry height="80" width="80" x="360" y="409" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fillStyle=solid;fontSize=9;spacingBottom=18;fillColor=#fff2cc;strokeColor=#d6b656;" value="Verbrauch&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="360" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-4" parent="1" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pointed_oval;rotation=-89.8;textDirection=vertical-rl;direction=west;fontSize=9;" value="Eigen-&lt;div&gt;verbrauch&lt;/div&gt;" vertex="1">
+          <mxGeometry height="63.87" width="42" x="378.97" y="392.64" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=9;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;spacingTop=18;" value="Erzeugung" vertex="1">
+          <mxGeometry height="80" width="80" x="240" y="409" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fillStyle=solid;fontSize=9;spacingBottom=18;fillColor=#F8EEEE;strokeColor=#b85450;" value="Verbrauch&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="240" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-10" parent="1" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pointed_oval;rotation=-89.8;textDirection=vertical-rl;direction=west;fontSize=9;fillColor=#f8cecc;strokeColor=#b85450;" value="Eigen-&lt;div&gt;verbrauch&lt;/div&gt;" vertex="1">
+          <mxGeometry height="63.87" width="42" x="258.97" y="392.64" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fontSize=9;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;spacingTop=18;fillColor=#EFF4FC;strokeColor=#6c8ebf;" value="Erzeugung" vertex="1">
+          <mxGeometry height="80" width="80" x="480" y="409.07" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-12" parent="1" style="ellipse;whiteSpace=wrap;html=1;shapeInside=1;aspect=fixed;fillStyle=solid;fontSize=9;spacingBottom=18;" value="Verbrauch&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="480" y="360.07" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-13" parent="1" style="whiteSpace=wrap;html=1;shape=mxgraph.basic.pointed_oval;rotation=-89.8;textDirection=vertical-rl;direction=west;fontSize=9;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Eigen-&lt;div&gt;verbrauch&lt;/div&gt;" vertex="1">
+          <mxGeometry height="63.87" width="42" x="498.97" y="392.71" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-14" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Autarkiegrad" vertex="1">
+          <mxGeometry height="30" width="60" x="249.97" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-15" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Residuallast" vertex="1">
+          <mxGeometry height="30" width="60" x="369.97" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-16" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="Eigenverbrauchsquote" vertex="1">
+          <mxGeometry height="30" width="60" x="489.97" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-17" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;fontSize=8;" value="&lt;div&gt;$$\text{Verbrauch} - \text{Erzeugung}$$&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="369.97" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;\(\frac{\text{Eigenverbrauch}}{\text{Verbrauch}}\)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="249.97" y="325" as="geometry" />
+        </mxCell>
+        <mxCell id="DBQ6zwgsACEj0phD67vC-20" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;div&gt;\(\frac{\text{Eigenverbrauch}}{\text{Erzeugung}}\)&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="60" x="490" y="327" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

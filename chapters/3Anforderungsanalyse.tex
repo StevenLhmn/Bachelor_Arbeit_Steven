@@ -1,33 +1,30 @@
 \chapter{Anforderungsanalyse}
 \textit{„Eine Anforderungsspezifikation ist eine systematisch dargestellte Sammlung von Anforderungen (typischerweise für ein System oder eine Komponente), die vorgegebenen Kriterien genügt.“} \cite{Anf-Spec}
 
-% TODO: bib.tex
-Die Anforderungen können nach \cite{Anf-Spec} von verschiedene Perspektiven betrachtet werden. Zur Beschreibung der Anforderungen des zu entwickelnden Algorithmus eignen sich die Strukturperspektive und die Funktionsperspektive. In der Betrachtung der Funktionsperspektive kann zwischen den funktionalen Anforderungen, Qualitätsanforderungen und Randbedingung unterschieden werden.
+Die Anforderungen können nach~\cite{Anf-Spec} von verschiedene Perspektiven betrachtet werden. Zur Beschreibung der Anforderungen des zu entwickelnden Algorithmus eignen sich die Strukturperspektive und die Funktionsperspektive. In der Betrachtung der Funktionsperspektive kann zwischen den funktionalen Anforderungen, Qualitätsanforderungen und Randbedingung unterschieden werden.
 
 Die Anforderungen basieren auf der Absprache mit Petrit Vuthi vom CC4E, der den Algorithmus im Rahmen seiner Doktorarbeit einsetzen wird.
 
 \section{Funktionale Anforderungen}
 \begin{enumerate}[label=Req-\arabic*:]
-    \item Die zugrundeliegenden Kartendaten sind die 3D-Gebäudemodell LoD2-DE Hamburg 2023 (Format: CityGML V.1.0) vom Landesbetrieb Geoinformation und Vermessung (LGV) Hamburg~\cite{HH_LOD2}.
-    \item Es müssen die Werte für eine "Boundingbox" mit der Nord-, Süd-, Ost- und Westgrenze eingegeben werden können, um das zu betrachtende Gebiet (Region) zu definieren. Das Koordinatenreferenzsystem muss EPSG:3857 sein.
-    \item Es müssen nur Regionen mit einer maximalen Anzahl von 100000 Häusern betrachtet werden können.
-    \item Die maximale räumliche Ausdehnung der Region darf 10 km in Ost-West-Richtung und 10 km in Nord-Süd-Richtung nicht überschreiten.
-    \item Es müssen Last- und Erzeugungsprofile eingelesen werden können. Diese repräsentieren den generierten und verbrauchten Strom des Hauses pro Stunde in kWH in einem Kalenderjahr. Die Listen müssen bei jedem Haus 8784 Elemente beinhalten und die Werte müssen positiv und vollständig sein.
-    \item Die Lastprofiele betrachten nur den Sromverbrauch. Der wärmeverbrauch wird bei jedem Haus mit einer Wärmepumpe erzeugt. Mobilität wird nicht betrachtet
-    \item Die Last- und Erzeugungsprofile können maximal Werte von 1000 kWh pro Zeitschritt pro Haus haben. 
-    \item Die Ausgabe des Algorithmus soll eine Liste von Label werten sein, die angeben in welche Gruppe das Haus zugeordnet wurde. 
     \item Der Algorithmus soll die eingelesenen Häuser zu Gruppen zusammenführen. Diese Gruppen sollen möglichst klar abgetrennte werden und  aber die Gruppen auch möglichst Autark sind. Wie gut eine Gruppe aufgeteilt wurde bestimmt eine Bewertungsfunktion (Region Score). Diese wird durch die Formel im Kapitel „Technische Analyse“ beschrieben. Diese Bewertungsfunktion soll maximiert werden.
+    \item Ein Haus kann nur einer Gruppe zugeordnet werden.
     \item Die Anzahl der Gruppen muss im Vorhinein nicht festgelegt sein.
     \item Die maximale Anzahl an Häusern in einer Gruppe muss festgelegt werden können.
     \item Die maximale räumliche Ausdehnung einer Gruppe muss festgelegt werden können. Diese wird durch den Mittelpunkt der Gruppe zum am weitesten entferntesten Haus berechnet.
-    \item Ein Haus kann nur einer Gruppe zugeordnet werden.
+    \item Die zugrundeliegenden Kartendaten sind die 3D-Gebäudemodell LoD2-DE Hamburg 2023 (Format: CityGML V.1.0) vom Landesbetrieb Geoinformation und Vermessung (LGV) Hamburg~\cite{HH_LOD2}.
+    \item Es müssen die Werte für eine "Boundingbox" mit der Nord-, Süd-, Ost- und Westgrenze eingegeben werden können, um das zu betrachtende Gebiet (Region) zu definieren. Das Koordinatenreferenzsystem muss EPSG:3857 sein.
+    \item Es werden nur Regionen mit 10, 100, 1000, 10000 und 100000 Häusern betrachtet werden.
+    \item Es werden Lastprofielgänge mit dem LoadProfileGenerator~\cite{LPG} erzeugt, die anhand von Standard Haushalten errechnet werden. Diese beschreiben den verbrauchten Strom des Hauses pro Stunde in kWH in einem Kalenderjahr. Die Listen müssen bei jedem Haus 8784 Elemente beinhalten und die Werte müssen positiv und vollständig sein.
+    \item Die Lastprofiele betrachten nur den Stromverbrauch. Der Wärmeverbrauch wird bei jedem Haus mit einer Wärmepumpe erzeugt. Mobilität wird nicht betrachtet. 
+    \item Die Ausgabe des Algorithmus soll eine Liste von Label werten sein, die angeben in welche Gruppe das Haus zugeordnet wurde. 
     \item Der Algorithmus soll unter Eingabe des gleichen Seeds deterministisch sein.
     \item Wenn die Anforderungen der Eingabe nicht eingehalten werden können, bricht der Algorithmus mit einem Fehler die Ausführung ab.
 \end{enumerate}
 
 \section{Nichtfunktionale Anforderungen}
 \begin{enumerate}[label=Req-N-\arabic*:]
-    \item Die Laufzeit soll in \(O(n)\) liegen, wobei \(n\) der Anzahl der betrachteten Häuser entspricht.
+    \item Die Laufzeit soll kleiner oder gleich \(O(n)\) liegen, wobei \(n\) der Anzahl der betrachteten Häuser entspricht.
     \item Die Laufzeit darf auf einem System mit einem Intel Core i7-XXXX, XX GB RAM und Windows/Linux bei der Verarbeitung von XX Häusern maximal XX Minuten betragen.
 \end{enumerate}
 

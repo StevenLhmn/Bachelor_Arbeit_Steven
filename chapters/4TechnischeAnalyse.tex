@@ -74,12 +74,15 @@ $y_h$ & y-Koordinate des Hauses $h$\\
 
 \subsection{Autarky}
 
-Auch für die Berechnungsgrundlage wie gut eine Gruppe energetisch gruppiert wurde, gibt es verschiedene Herangehensweisen. Man kann die Autarkie, die Eigenverbrauchsquote und die Residuallast bestimmen. 
-Autarkie
+Auch für die Berechnungsgrundlage wie gut eine Gruppe energetisch gruppiert wurde, gibt es verschiedene Herangehensweisen. Man kann die Autarkie, die Eigenverbrauchsquote und die Residuallast bestimmen.  
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Eigenverbrauch Venn.jpg}
+    \caption{Schematische Darstellung des Eigenverbrauchs innerhalb einer Gruppe: Die überlappende Fläche zwischen Erzeugung und Last entspricht dem lokal verbrauchten Anteil der Energie.}
+\end{figure}
 
-Um zu entscheiden welcher Wert am besten geeignet ist, muss das Ziel von Energiecommununetys betrachtet werden.
-Die Ziele der Energiecommunities sind laut Richtlinie der Euopäischen Union~\cite{EE_EU2018} eine bessere lokale Energieversorgungssicherheit und Energieautonomie, als auch die Förderung der Nutzung lokaler Erneuerbarer Energien.
-Dies ist es die energetische Effizienz zu erhöhen und möglichst selbstständig zu sein. Deshalb passt Autarkie als Maß besonders gut. Für den Fall, dass zu viel Strom produziert wird, spielt es nicht weiter ins Gewicht (bei solar wird die energie einfach nciht abgenoimmen dann). Bei der Residuallast und der Eigenverbrauchsquote hingegen spielt die zu viel erzeugte Energie eine zentrale Rolle und würde eine Region negativ beeinflussen. Wenn hingegen zu wenig Energie im Gebiet existiert würde die Eigenverbrauchsquote das nicht betrachten. Das ist aber für die Selbstständigkeit einer Energiecommunity besonders wichtig. Und bei der Residuallast wird es zwar negativ ins Gewicht fallen, allerdings nur zu einem Teil, weil der zweite Teil auch die zu viele Energie betrachtet.
+Um zu Entscheiden welcher Wert am besten geeignet ist, muss das Ziel von Energiecommununetys betrachtet werden.
+Die Ziele der Energiecommunities sind laut Richtlinie der Euopäischen Union~\cite{EE_EU2018} unter Anderem eine bessere lokale Energieversorgungssicherheit und Energieautonomie, als auch die Förderung der Nutzung lokaler Erneuerbarer Energien. Deshalb passt Autarkie als Maß besonders gut. Für den Fall, dass zu viel Strom produziert wird, spielt es nicht weiter ins Gewicht (bei solar wird die energie einfach nciht abgenoimmen dann). Bei der Residuallast und der Eigenverbrauchsquote hingegen spielt die zu viel erzeugte Energie eine zentrale Rolle und würde eine Region negativ beeinflussen. Wenn hingegen zu wenig Energie im Gebiet existiert würde die Eigenverbrauchsquote das nicht betrachten. Das ist aber für die Selbstständigkeit einer Energiecommunity besonders wichtig. Und bei der Residuallast wird es zwar negativ ins Gewicht fallen, allerdings nur zu einem Teil, weil der zweite Teil auch die zu viele Energie betrachtet.
 Außerdem muss unterschieden werden zwischen bilanziellem Berechnungen und lastgerechten Berechnun~\cite{bilanzAutark}. Die Bilanzielle Berechnung beschreibt die Berechnung über einen definierten Zeitraum (meist ein Kalenderjahr). Ein bilanzieller Autarkiegrad von 100 \% bedeutet, dass ein System rein quantitativ so viel Energie produziert, wie es verbraucht, ungeachtet der zeitlichen Korrelation. Deshalb muss lastgerecht gerechnet werden, also pro Zeitschritt, in diesem Fall pro Stunde. Die lastgerechte Autarkie definiert die Fähigkeit eines Systems, den Energiebedarf zu jedem Zeitpunkt selbst zu decken. Da wetterabhängige Erzeuger (PV, Wind) oft nicht mit den Lastprofilen korrespondieren, ist die lastgerechte Autarkie technisch deutlich anspruchsvoller zu realisieren als die bilanzielle. Ein Grad von 50 \% bedeutet hierbei, dass das System über die Hälfte des Betrachtungszeitraums vollständig eigenversorgt war.
 In dieser Arbeit wird nur von der lastgerechten Autarkie gesprochen.
 [Bottom up erklären nicht top down] 
