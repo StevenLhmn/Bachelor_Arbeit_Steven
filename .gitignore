@@ -2,7 +2,7 @@
 
 .vscode/
 
-.drawio.bkp
+*.drawio.bkp
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
