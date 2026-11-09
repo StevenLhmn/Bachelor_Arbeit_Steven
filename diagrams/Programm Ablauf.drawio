@@ -1,0 +1,114 @@
+<mxfile host="Electron">
+  <diagram name="Seite-1" id="nk3gB_wC9_Mu8evy0aQ0">
+    <mxGraphModel dx="2784" dy="1186" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HORI5j70b0FdtukmEk9c-27" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;spacingBottom=270;" value="Fokus der Arbeit:&amp;nbsp;&lt;div&gt;Vergleich der Gruppierungs und Clusteralgorithmen&lt;/div&gt;" vertex="1">
+          <mxGeometry height="320" width="320" x="414" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-31" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;spacingBottom=0;spacingTop=30;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="Brute Force" vertex="1">
+          <mxGeometry height="50" width="100" x="614" y="574" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-30" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;spacingBottom=0;spacingLeft=0;spacingTop=30;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="Hierarchisch" vertex="1">
+          <mxGeometry height="50" width="100" x="614" y="555" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-29" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;spacingBottom=0;spacingTop=30;fontStyle=0;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" value="Genetisch" vertex="1">
+          <mxGeometry height="50" width="100" x="614" y="535" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-28" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;spacingBottom=190;" value="Erzeugung der Testdaten" vertex="1">
+          <mxGeometry height="230" width="520" x="-140" y="430" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-13" edge="1" parent="1" source="HORI5j70b0FdtukmEk9c-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="HORI5j70b0FdtukmEk9c-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-3" parent="1" style="html=1;strokeWidth=2;shape=manualInput;boundedLbl=1;whiteSpace=wrap;rounded=1;size=26;arcSize=11;spacingBottom=8;" value="&lt;div&gt;Benutzer Input:&lt;/div&gt;&lt;div&gt;u.A.&amp;nbsp;&lt;span style=&quot;background-color: transparent; color: light-dark(#000000, var(--ge-light-color, #ffffff));&quot;&gt;Autarkie Gewichtung&lt;/span&gt;&lt;/div&gt;&lt;div&gt;und Häuserbegrenzung&lt;/div&gt;" vertex="1">
+          <mxGeometry height="75" width="160" x="210" y="345" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-12" edge="1" parent="1" source="HORI5j70b0FdtukmEk9c-4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="HORI5j70b0FdtukmEk9c-25">
+          <mxGeometry relative="1" x="0.819" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-4" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Geo Daten" vertex="1">
+          <mxGeometry height="50" width="130" x="240" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-11" edge="1" parent="1" source="HORI5j70b0FdtukmEk9c-5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="HORI5j70b0FdtukmEk9c-25">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-5" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Häuser Strom&lt;br&gt;Generation" vertex="1">
+          <mxGeometry height="50" width="130" x="240" y="515" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-10" edge="1" parent="1" source="HORI5j70b0FdtukmEk9c-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="HORI5j70b0FdtukmEk9c-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-6" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Häuser Strom&lt;br&gt;Verbrauch" vertex="1">
+          <mxGeometry height="50" width="130" x="240" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-9" edge="1" parent="1" source="HORI5j70b0FdtukmEk9c-7" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="HORI5j70b0FdtukmEk9c-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;spacingBottom=0;" value="Vergleich Gruppierungs-algorithmen" vertex="1">
+          <mxGeometry height="50" width="100" x="604" y="515" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-8" parent="1" style="shape=parallelogram;html=1;strokeWidth=2;perimeter=parallelogramPerimeter;whiteSpace=wrap;rounded=1;arcSize=12;size=0.23;" value="Häuser&lt;div&gt;Zuordnung&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="130" x="740" y="515" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-15" edge="1" parent="1" source="HORI5j70b0FdtukmEk9c-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="HORI5j70b0FdtukmEk9c-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-21" edge="1" parent="1" source="HORI5j70b0FdtukmEk9c-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="HORI5j70b0FdtukmEk9c-18">
+          <mxGeometry relative="1" x="0.1515" as="geometry">
+            <Array as="points">
+              <mxPoint x="70" y="475" />
+              <mxPoint x="70" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-22" edge="1" parent="1" source="HORI5j70b0FdtukmEk9c-14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.25;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;exitX=1;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;" target="HORI5j70b0FdtukmEk9c-19">
+          <mxGeometry relative="1" x="-0.0529" as="geometry">
+            <Array as="points">
+              <mxPoint x="70" y="475" />
+              <mxPoint x="70" y="592.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-14" parent="1" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.direct_data;whiteSpace=wrap;" value="Hamburg Datensatz" vertex="1">
+          <mxGeometry height="50" width="100" x="-100" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-17" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="HORI5j70b0FdtukmEk9c-5">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="200" y="540" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-18" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" value="PV Rechner CC4E" vertex="1">
+          <mxGeometry height="50" width="100" x="100" y="515" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-20" edge="1" parent="1" source="HORI5j70b0FdtukmEk9c-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="HORI5j70b0FdtukmEk9c-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-19" parent="1" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=14;strokeWidth=2;" value="LPG [6]" vertex="1">
+          <mxGeometry height="50" width="100" x="100" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-24" edge="1" parent="1" source="HORI5j70b0FdtukmEk9c-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.75;entryDx=0;entryDy=0;defaultLabelBackgroundColor=page;" target="HORI5j70b0FdtukmEk9c-19">
+          <mxGeometry relative="1" x="-0.014" as="geometry">
+            <Array as="points">
+              <mxPoint x="50" y="617.5" />
+              <mxPoint x="50" y="617.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-23" parent="1" style="html=1;strokeWidth=2;shape=manualInput;boundedLbl=1;whiteSpace=wrap;rounded=1;size=26;arcSize=11;" value="Annahmen über Häuser und Bevölkerung" vertex="1">
+          <mxGeometry height="75" width="100" x="-100" y="570" as="geometry" />
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-26" edge="1" parent="1" source="HORI5j70b0FdtukmEk9c-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;defaultLabelBackgroundColor=page;" target="HORI5j70b0FdtukmEk9c-25" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="355" y="605" as="sourcePoint" />
+            <mxPoint x="490" y="540" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HORI5j70b0FdtukmEk9c-25" parent="1" style="verticalLabelPosition=middle;verticalAlign=middle;html=1;shape=hexagon;perimeter=hexagonPerimeter2;arcSize=6;size=0.27;labelPosition=center;align=center;" value="Datenvorverarbeitung" vertex="1">
+          <mxGeometry height="60" width="140" x="434" y="510" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
