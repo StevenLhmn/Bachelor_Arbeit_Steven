@@ -134,7 +134,82 @@ Für die Bewertung der Gruppierung sind drei zentrale Fragestellungen zu betrach
 
 
 \section{Gruppierungsalgorithmen}
-Jetzt wo wir wissen was eine Gute gruppe ist müssen wir überlegen wie wir die Gruppen bestimmen. Zuerst ligt es nahe alle möglichen Gruppen zu bestimmen und dann einfach die Besten Werte auszuwählen. Das funktioniet auch gt wenn das Betrachtete Gebiet ca 8 Gebäude  [Zeit] hat, aber die diese zeit wird so schenll Größer dass dieser Brute force ansatz nicht für Wohngebiete gar Satdteile funktioieren wird. Und da laut der Anforderungen auch b´gebiete mit größe [] berechnet werden müssen würde man da xx lnage warten. Die [wie heit das nochmal] O() ist bei xx.
+An dieser Stelle ist bekannt, wie die Definition einer gut gruppierten Region lautet. Die HErausforderung besteht darin einen Algorithmus zu finden, der diese Aufgabe möglichst gut löst.
+
+\subsection{Brute Force}
+Ein naiver Ansatz ist, alle möglichen Gruppen zu bilden und für jede Konstellation den "Region Score" zu berechnen. Dadurch findet man garantiert das beste Ergebnis, hat aber viel Rechenaufwand. Um diesen zu bestimmen hift es die Kombinatorik zu betrachten. Damit die Beschreibung einfacher wird, werden die Einschränkung von Req-4 und Req-5 hier außer Acht gelassen. Es gibt also keine maximale Gruppengröße und keine maximale räumliche Ausdehnung für die Gruppen.
+
+Eine Gruppe G kann aus mindestens einem Haus bis hin zu allen Häusern einer Region bestehen. Das macht sie zu einer Teilmenge der Menge an Häusern einer Region H.
+\begin{align}
+    G \subseteq H
+\end{align}
+
+Ein Haus muss immer mindestens einer Gruppe zugeordnet sein, also ist die
+Vereinigung von allen Gruppen wieder die menge H.
+\begin{align}  
+    \bigcup_{i=1}^{k}G_{k} = H
+\end{align}
+
+Eine Gruppe ohne ein Haus ist nicht von Bedeutung und kann somit nicht existieren. Also kann eine Menge G nicht leer sein.
+\begin{align}
+    G \neq \emptyset 
+\end{align}
+
+Ein Haus darf nicht in zwei Gruppen sein, es gilt also
+\begin{align}
+    G_{i} \cap G_{j} = \emptyset, i\neq j
+\end{align}
+
+
+Wenn alle Häuser einer Region einer Gruppe zugeordnet wurden, ergibt das eine "Grouped Region" R. Das ist dann eine Möglichkeit wie man eine Region zu Gruppen sortieren kann. 
+\begin{align}
+    R = \left\{ G1, \dots, Gk \right\} \; mit \; 1 \le k \le |H|
+\end{align}
+
+Jetzt gibt es aber auch viele möglichkeiten eine Grouped Region zu erstellen. Die Menge aller möglichen grouped regions ist also zu bestimmen. Und für jede muss der Region Score ausgerechnet werden. Insgesamt ergibt sich
+\begin{align}
+  \Pi(H) = 
+  \left\{ 
+    \{G_1,\dots,G_k\}
+  \;\middle|\;
+    \begin{array}{ll}
+      k\in\{1,\dots,|H|\}\\
+      G_i\subseteq H & \forall i\in\{1,\dots,k\}\\
+      G_i\neq\emptyset & \forall i\in\{1,\dots,k\}\\
+      G_i\cap G_j=\emptyset & \forall i\neq j\\
+      \displaystyle\bigcup_{i=1}^{k}G_i=H
+    \end{array}
+  \right\}
+\end{align}
+
+Sobald der Score für alle grouped Regions ausgerechnet wurde, kann der beste ausgewählt werden.
+
+Dieses Verfahren funktioniert gut, wenn die Region bis zu 10 Gebäude beinhaltet, aber bei größeren Anzahlen wird die Rechenzeit zu lange. Das liegt daran, dass die Anzahl an möglichen grouped Regions mit der Bellzahl wächst. Die Bellzahl $B_n$ gibt die Anzahl aller möglichen Partitionen einer Menge mit $n$ Elementen an. Die ersten Bellzahlen sind:
+
+\begin{center}
+\begin{tabular}{r|r}
+    Anzahl der Gebäude $n$ & Bellzahl $B_n$ \\
+    \hline
+    0  & 1 \\
+    1  & 1 \\
+    2  & 2 \\
+    3  & 5 \\
+    4  & 15 \\
+    5  & 52 \\
+    6  & 203 \\
+    7  & 877 \\
+    8  & 4.140 \\
+    9  & 21.147 \\
+    10 & 115.975 \\
+    11 & 678.570 \\
+    12 & 4.213.597 \\
+    13 & 27.644.437 \\
+    14 & 190.899.322 \\
+    15 & 1.382.958.545
+\end{tabular}
+\end{center}
+
+Das funktioniet auch gt wenn das Betrachtete Gebiet ca 8 Gebäude  [Zeit] hat, aber die diese zeit wird so schenll Größer dass dieser Brute force ansatz nicht für Wohngebiete gar Satdteile funktioieren wird. Und da laut der Anforderungen auch b´gebiete mit größe [] berechnet werden müssen würde man da xx lnage warten. Die [wie heit das nochmal] O() ist bei xx.
 
 Da es sehr viele Verschiedene Algorithmen gibt die Daten Gruppieren die den Rahmen der Abreit sprengen würden werden hier vor allem GRundsättlich andere Ansätze ausprobiert.
 
