@@ -130,11 +130,11 @@ Für die Bewertung der Gruppierung sind drei zentrale Fragestellungen zu betrach
     \item wie die räumliche Qualität einer Gruppierung bewertet werden kann. \newline Im aktuellen Ansatz wird hierfür die euklidische Distanz innerhalb der Gruppen (Intra-Cluster-Distanz, Kompaktheit) betrachtet. Eine alternative Möglichkeit besteht darin, zusätzlich oder stattdessen die Distanz zwischen verschiedenen Gruppen (Inter-Cluster-Distanz, räumliche Trennung) zu berücksichtigen.
     \item Darüber hinaus stellt sich die Frage, wie die energetische Qualität einer Gruppierung bewertet werden kann. Im aktuellen Ansatz wird hierfür der Autarkiegrad der einzelnen Gruppen betrachtet. 
     \item Schließlich ist zu bestimmen, wie die beiden Metriken zu einer gemeinsamen Bewertungsgröße kombiniert werden können. Im aktuellen Ansatz werden beide Metriken über eine gewichtete Summe zu einem Gesamtscore zusammengeführt.
-\end{itemize} 
+\end{itemize}
 
 
 \section{Gruppierungsalgorithmen}
-An dieser Stelle ist bekannt, wie die Definition einer gut gruppierten Region lautet. Die HErausforderung besteht darin einen Algorithmus zu finden, der diese Aufgabe möglichst gut löst.
+An dieser Stelle ist bekannt, wie die Definition einer gut gruppierten Region lautet. Die Herausforderung besteht darin einen Algorithmus zu finden, der diese Aufgabe möglichst gut löst.
 
 \subsection{Brute Force}
 Ein naiver Ansatz ist, alle möglichen Gruppen zu bilden und für jede Konstellation den "Region Score" zu berechnen. Dadurch findet man garantiert das beste Ergebnis, hat aber viel Rechenaufwand. Um diesen zu bestimmen hift es die Kombinatorik zu betrachten. Damit die Beschreibung einfacher wird, werden die Einschränkung von Req-4 und Req-5 hier außer Acht gelassen. Es gibt also keine maximale Gruppengröße und keine maximale räumliche Ausdehnung für die Gruppen.
@@ -166,7 +166,7 @@ Wenn alle Häuser einer Region einer Gruppe zugeordnet wurden, ergibt das eine "
     R = \left\{ G1, \dots, Gk \right\} \; mit \; 1 \le k \le |H|
 \end{align}
 
-Jetzt gibt es aber auch viele möglichkeiten eine Grouped Region zu erstellen. Die Menge aller möglichen grouped regions ist also zu bestimmen. Und für jede muss der Region Score ausgerechnet werden. Insgesamt ergibt sich
+Jetzt gibt es aber auch viele Möglichkeiten, eine Grouped Region zu erstellen. Die Menge aller möglichen Grouped Regions ist also durch $\Pi(H)$ zu bestimmen. Für jede davon muss der Region Score ausgerechnet werden. Insgesamt ergibt sich
 \begin{align}
   \Pi(H) = 
   \left\{ 
