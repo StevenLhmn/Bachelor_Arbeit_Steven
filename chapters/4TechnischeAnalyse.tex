@@ -16,7 +16,9 @@ Um zu bestimmen, wie gut räumlich gruppiert wurde, muss zuerst definiert werden
 [Hier fehlt noch die Erläuterung zu Distanzmaßen. Die wird aktuell noch nicht fertig geschrieben]
 % [Begründungwarum sich fpr diesen entschieen wurde]
 
-Zur Berechnung des Distance Scores wird ein relatives Distanzverhältnis genutzt. Das Ziel ist es die Distanzverbesserung zur ungruppierten Region, dem Worst Case, zu bestimmen. Dafür wird zunächst die Gesamtdistanz aller Häuser zu einem gemeinsamen Centroid als Referenzwert bestimmt. Anschließend wird die Distanz der Häuser innerhalb ihrer Gruppe zu ihrem jeweiligen Centroid berechnet und aufsummiert. Diese beiden Werte werden dann ins Verhältnis gesetzt. Daraus ergibt sich, dass je höher der Score ist, desto besser wurde die Distanz der Häuser minimiert. Der beste Wert gäbe es, wenn jedes Haus seine eigene Gruppe ist.
+Zur Berechnung des Distance Scores wird ein relatives Distanzverhältnis genutzt. Das Ziel ist es die Distanzverbesserung zur ungruppierten Region, dem Worst Case, zu bestimmen. Dafür wird zunächst die Gesamtdistanz aller Häuser zu einem gemeinsamen Centroid als Referenzwert bestimmt. Anschließend wird die Distanz der Häuser innerhalb ihrer Gruppe zu ihrem jeweiligen Centroid berechnet und aufsummiert. Diese beiden Werte werden dann ins Verhältnis gesetzt.
+
+Daraus ergibt sich, dass je höher der Score ist, desto besser wurde die Distanz der Häuser minimiert. Der beste Wert gäbe es, wenn jedes Haus seine eigene Gruppe ist.
 
 Der Centroid (räumliche Mittelpunkt) einer Gruppe ($C_G$) wird durch den arithmetischen Mittelwert der Koordinaten ihrer Mitglieder bestimmt:
 
